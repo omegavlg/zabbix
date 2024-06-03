@@ -11,7 +11,7 @@ yum update -y
 
 ### 2. Устанавливаем PosgreSQL, используя официальную документацию.
 
-#### Install the repository RPM:
+#### Устанавливаем репозиторий:
 ```
 sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 ```
@@ -27,7 +27,7 @@ sudo dnf install -y postgresql14-server
 ```
 <img src = "img/installPG02.png" width = 100%>
 
-#### Optionally initialize the database and enable automatic start:
+#### Иницализируем БД и добавляем в автозапуск:
 ```
 sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
 sudo systemctl enable postgresql-14
@@ -99,6 +99,31 @@ systemctl enable zabbix-server httpd php-fpm
 4. `Заполните здесь этапы выполнения, если требуется ....`
 5. `Заполните здесь этапы выполнения, если требуется ....`
 6. 
+
+
+### 1. Устанавливаем zabbix-agent на 2-х ВМ. Один агент будет установлен на туже ВМ где и zabbix-server
+```
+dnf install zabbix-agent
+```
+<img src = "img/installZBX07.png" width = 100%>
+```
+rpm -Uvh https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-4.el8.noarch.rpm
+dnf install zabbix-agent
+```
+<img src = "img/installZBX08.png" width = 100%>
+
+### 2. Запускаем zabbix-agent на ВМ.
+```
+systemctl start zabbix-agent
+systemctl enable zabbix-agent
+```
+<img src = "img/installZBX08.png" width = 100%>
+<img src = "img/installZBX09.png" width = 100%>
+
+
+zabbix-agent доверяет только входящему соединению от zabbix-server, если и агент и сервер установлены на одной машине. В случае, если zabbix-agent находится в другом месте, то в его кофигурационный файл необходимо внести изменения.
+
+
 
 ```
 Поле для вставки кода...
