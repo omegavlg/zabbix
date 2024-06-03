@@ -111,8 +111,27 @@ systemctl enable zabbix-agent
 <img src = "img/installZBX09.png" width = 100%>
 <img src = "img/installZBX10.png" width = 100%>
 
+### 3. Добавляем узел через web-интерфейс.
 
-zabbix-agent доверяет только входящему соединению от zabbix-server, если и агент и сервер установлены на одной машине. В случае, если zabbix-agent находится в другом месте, то в его кофигурационный файл необходимо внести изменения.
+<img src = "img/addagent01.png" width = 100%>
+<img src = "img/addagent02.png" width = 100%>
+<img src = "img/addagent03.png" width = 100%>
+
+Видим, что в колнке "Доступность", у добавленного узла появился красный статус "zbx" Это говорит о том, что zabbix-agent доверяет только входящему соединению от zabbix-server, если и агент и сервер установлены на одной машине. В случае, если zabbix-agent находится в другом месте, то в его кофигурационный файл необходимо внести изменения.
+
+Для начала можем заглянуть в лог файл и посмотреть на что ругается агент.
+```
+cat /var/log/zabbix/zabbix_agentd.log
+```
+<img src = "img/addagent03.png" width = 100%>
+
+Видим что действительно он не пропускает входящие соединения от удаленного сервера:
+```
+2050:20240603:153418.885 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
+2050:20240603:153433.959 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
+```
+
+
 
 
 
