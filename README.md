@@ -123,7 +123,7 @@ systemctl enable zabbix-agent
 ```
 cat /var/log/zabbix/zabbix_agentd.log
 ```
-<img src = "img/addagent03.png" width = 100%>
+<img src = "img/addagent04.png" width = 100%>
 
 Видим что действительно он не пропускает входящие соединения от удаленного сервера:
 ```
