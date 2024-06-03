@@ -130,9 +130,19 @@ cat /var/log/zabbix/zabbix_agentd.log
 2050:20240603:153418.885 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
 2050:20240603:153433.959 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
 ```
+Чтобы это исправить, добавляем ip-адрес zabbix-server в конфигурационный файл /etc/zabbix/zabbix_agentd.conf. Для этого используем команду sed.
+```
+sed -i 's/Server=127.0.0.1/Server=192.168.1.87/g' /etc/zabbix/zabbix_agentd.conf
+```
+И перезапускаем сам агент.
+```
+systemctl start zabbix-agent
+```
+<img src = "img/addagent05.png" width = 100%>
 
+После этого можно видеть, что статус "zbx" у добавленного узла, сменился на зеленый
 
-
+<img src = "img/addagent06.png" width = 100%>
 
 
 ```
