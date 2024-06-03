@@ -91,21 +91,12 @@ systemctl enable zabbix-server httpd php-fpm
 
 ## Задание 2
 
-`Приведите ответ в свободной форме........`
-
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
-
 ### 1. Устанавливаем zabbix-agent на 2-х ВМ. Один агент будет установлен на туже ВМ где и zabbix-server
 ```
 dnf install zabbix-agent
 ```
 <img src = "img/installZBX07.png" width = 100%>
+
 ```
 rpm -Uvh https://repo.zabbix.com/zabbix/6.0/rhel/8/x86_64/zabbix-release-6.0-4.el8.noarch.rpm
 dnf install zabbix-agent
@@ -117,8 +108,8 @@ dnf install zabbix-agent
 systemctl start zabbix-agent
 systemctl enable zabbix-agent
 ```
-<img src = "img/installZBX08.png" width = 100%>
 <img src = "img/installZBX09.png" width = 100%>
+<img src = "img/installZBX10.png" width = 100%>
 
 
 zabbix-agent доверяет только входящему соединению от zabbix-server, если и агент и сервер установлены на одной машине. В случае, если zabbix-agent находится в другом месте, то в его кофигурационный файл необходимо внести изменения.
