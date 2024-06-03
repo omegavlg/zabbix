@@ -125,7 +125,7 @@ cat /var/log/zabbix/zabbix_agentd.log
 ```
 <img src = "img/addagent04.png" width = 100%>
 
-Видим что действительно он не пропускает входящие соединения от удаленного сервера:
+Видим, что действительно он не пропускает входящие соединения от удалённого сервера:
 ```
 2050:20240603:153418.885 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
 2050:20240603:153433.959 failed to accept an incoming connection: connection from "192.168.1.87" rejected, allowed hosts: "127.0.0.1"
@@ -144,18 +144,16 @@ systemctl start zabbix-agent
 
 <img src = "img/addagent06.png" width = 100%>
 
+### 4. Переходим в меню "Мониторинг -> Последние данные", чтобы убедиться, что информация начала поступать на сервер.
 
+<img src = "img/zbx_finish.png" width = 100%>
+
+### 5. Команды, которые использовались для Git.
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+git add .
+git commit -m "edit Readme.MD"
+git push origin main
 ```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
-
 
 ---
 
